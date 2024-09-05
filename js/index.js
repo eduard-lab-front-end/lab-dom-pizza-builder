@@ -65,62 +65,73 @@ function renderGreenPeppers() {
 
 function renderWhiteSauce() {
   // Iteration 2: add/remove the class "sauce-white" of `<section class="sauce">`
-  document.querySelectorAll('.sauce').forEach((sauce) => {
+  const sauce = document.querySelector('.sauce')
     if(state.whiteSauce) {
-      sauce.style.visibility = 'visible';
+      sauce.classList.add('sauce-white');
     } else {
-      sauce.style.visibility = 'hidden';
+      sauce.classList.remove('sauce-white');
     }
-  });
 }
 
 function renderGlutenFreeCrust() {
   // Iteration 2: add/remove the class "crust-gluten-free" of `<section class="crust">`
   const crust = document.querySelector('.crust-gluten-free');
     if(state.glutenFreeCrust) {
-      crust.style.visibility = 'visible';
+      crust.style.add('crust-gluten-free');
     } else {
-      crust.style.visibility = 'hidden';
+      crust.style.remove('crust-gluten-free');
     }
 }
+// function renderButtons() {
+//   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
+//   const buttons = document.querySelectorAll(".btn");
 
-function renderButtons() {
-  // Iteration 3: add/remove the class "active" of each `<button class="btn">`
-  const pepperoniButton = document.querySelector('.btn-pepperoni');
-  const mushroomsButton = document.querySelector('.btn-mushrooms');
-  const greenPeppersButton = document.querySelector('.btn-green-peppers');
-  const whiteSauceButton = document.querySelector('.btn-sauce');
-  const glutenFreeCrustsButton = document.querySelector('.btn-crust');
+//   buttons.forEach((button) => {
+//     const ingredient = button.dataset.ingredient;
+//     console.log(button.dataset)
+//     if (state[ingredient]) {
+//       button.classList.add("active");
+//     } else {
+//       button.classList.remove("active");
+//     }
+//   });}
+// function renderButtons() {
+//   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
+//   const pepperoniButton = document.querySelector('.btn-pepperoni');
+//   const mushroomsButton = document.querySelector('.btn-mushrooms');
+//   const greenPeppersButton = document.querySelector('.btn-green-peppers');
+//   const whiteSauceButton = document.querySelector('.btn-sauce');
+//   const glutenFreeCrustsButton = document.querySelector('.btn-crust');
 
-  // Toggle active class based on state
-  if (state.pepperoni) {
-      pepperoniButton.classList.add('active');
-  } else {
-      pepperoniButton.classList.remove('active');
-  }
+//   // Toggle active class based on state
+//   if (state.pepperoni) {
+//       pepperoniButton.classList.add('active');
+//   } else {
+//       pepperoniButton.classList.remove('active');
+//   }
 
-  if (state.mushrooms) {
-      mushroomsButton.classList.add('active');
-  } else {
-      mushroomsButton.classList.remove('active');
-  }
+//   if (state.mushrooms) {
+//       mushroomsButton.classList.add('active');
+//   } else {
+//       mushroomsButton.classList.remove('active');
+//   }
 
-  if (state.greenPeppers) {
-      greenPeppersButton.classList.add('active');
-  } else {
-      greenPeppersButton.classList.remove('active');
-  }
-  if (state.whiteSauce) {
-      whiteSauceButton.classList.add('active');
-  } else {
-      whiteSauceButton.classList.remove('active');
-  }
-  if (state.glutenFreeCrust) {
-      glutenFreeCrustsButton.classList.add('active');
-  } else {
-      glutenFreeCrustsButton.classList.remove('active');
-  }
-}
+//   if (state.greenPeppers) {
+//       greenPeppersButton.classList.add('active');
+//   } else {
+//       greenPeppersButton.classList.remove('active');
+//   }
+//   if (state.whiteSauce) {
+//       whiteSauceButton.classList.add('active');
+//   } else {
+//       whiteSauceButton.classList.remove('active');
+//   }
+//   if (state.glutenFreeCrust) {
+//       glutenFreeCrustsButton.classList.add('active');
+//   } else {
+//       glutenFreeCrustsButton.classList.remove('active');
+//   }
+// }
 
 
 function renderPrice() {
@@ -141,7 +152,6 @@ function renderPrice() {
   }
   totalElement.textContent = `Total: $${totalPrice}`
 }
-
 renderEverything();
 
 // Iteration 1: Example of a click event listener on `<button class="btn btn-pepperoni">`
